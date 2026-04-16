@@ -1,0 +1,84 @@
+/* Base styles for Musician Brand site */
+:root{
+  --bg:#ffd6e8; /* soft pink background */
+  --surface:#ffd0e0;
+  --muted:#6b6b6b; /* muted gray-ish for secondary text */
+  --accent:#ff7aa2; /* pink accent */
+  --accent-2:#ff4d8a; /* deeper pink */
+  --glass: rgba(0,0,0,0.04);
+  --radius:12px;
+  --max-width:1100px;
+  --gap:1.25rem;
+  --text:#000000; /* black text */
+}
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family:"Times New Roman", Times, serif; /* set Times New Roman site-wide */
+  color:var(--text);
+  background:linear-gradient(180deg, var(--bg) 0%, #ffd0e0 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  padding-top:72px; /* make room for the fixed topbar */
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:2rem;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{font-family:"Times New Roman", Times, serif;color:var(--text);font-weight:700;text-decoration:none;font-size:1.25rem}
+.site-nav{display:flex;gap:1rem;align-items:center}
+.site-nav a{color:var(--text);text-decoration:none;padding:0.5rem 0.9rem;border-radius:999px;background:rgba(255,255,255,0.8);box-shadow:0 2px 6px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.06)}
+.site-nav a.active{color:var(--text);background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 6px 20px rgba(255,77,138,0.12);font-weight:700}
+.site-nav a:hover{filter:brightness(.98);transform:translateY(-1px);transition:all 120ms ease}
+.nav-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:1.25rem}
+.hero{padding:3rem 0;background:transparent;border-radius:16px;margin:1rem 0}
+.hero-inner{display:grid;grid-template-columns:1fr 380px;gap:2rem;align-items:center}
+.hero-copy h1{font-family:"Times New Roman", Times, serif;font-size:2.25rem;margin:0 0 .5rem;color:var(--text)}
+.lead{color:var(--muted);margin:0 0 1rem}
+.hero-media img{width:100%;height:auto;border-radius:12px;box-shadow:0 6px 30px rgba(0,0,0,0.06)}
+.btn{display:inline-block;padding:0.6rem 1rem;border-radius:9px;text-decoration:none;font-weight:600}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff}
+.btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--muted)}
+.services{margin:2.5rem 0}
+.grid{display:grid;gap:1rem}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.card{background:rgba(255,255,255,0.6);padding:1.25rem;border-radius:12px}
+.card h3{margin:0 0 .5rem}
+.portfolio img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+.resources-list{list-style:none;padding:0;margin:0;display:flex;gap:1rem}
+.resources-list a{color:var(--muted);text-decoration:none}
+.contact-form{max-width:720px}
+.contact-form label{display:block;margin:0.5rem 0 0.25rem;color:var(--muted);font-size:.95rem}
+.contact-form input,.contact-form textarea{width:100%;padding:0.6rem;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:#fff;color:var(--text)}
+.form-actions{display:flex;gap:0.75rem;margin-top:0.75rem}
+.site-footer{border-top:1px solid rgba(0,0,0,0.06);padding:1.25rem 0;margin-top:2rem}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.footer-nav a{color:var(--muted);text-decoration:none;margin-left:1rem}
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+  .nav-toggle{display:inline-block}
+  .site-nav{position:absolute;right:1rem;top:64px;display:none;flex-direction:column;background:rgba(255,255,255,0.95);padding:0.75rem;border-radius:8px}
+  .site-nav.show{display:flex}
+}
+@media (max-width:480px){
+  .container{padding:1rem}
+  .hero-copy h1{font-size:1.6rem}
+}
+/* small helpers */
+.text-muted{color:var(--muted)}
+
+/* Header / tabs (shared across pages) */
+.topbar{background:transparent;padding:0.5rem 0;position:fixed;top:0;left:0;right:0;display:flex;justify-content:center;z-index:1200}
+.topbar .container{display:flex;align-items:center;justify-content:center;gap:1rem}
+.topbar .brand{font-size:1.125rem;color:var(--text)}
+.site-nav{display:flex;gap:0.5rem;align-items:center}
+.site-nav a{color:var(--text);text-decoration:none;padding:0.45rem 0.9rem;border-radius:999px;background:rgba(255,255,255,0.9);border:1px solid rgba(0,0,0,0.06)}
+.site-nav a.active{color:var(--text);background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 6px 20px rgba(255,77,138,0.12);font-weight:700}
+.site-nav a:hover{filter:brightness(.98)}
+
+/* small responsive tweak for header-only pages */
+@media (max-width:640px){
+  .site-nav{gap:0.25rem}
+  body{padding-top:96px}
+}
